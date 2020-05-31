@@ -16,7 +16,7 @@
 
   function onPostMessage(event) {
       if (event.origin !== CONST.TRUSTED_ORIGIN) return;
-
+      console.log('INSIDE POSTMESSAGE');
       if( CONST.PARAM_CHANGE === event.data.type ){
           iframeBridge.updateParams(event.data.payload)
       }
@@ -29,6 +29,7 @@
               searchParams.set(pkey, newparams[pkey]);
           }
           var newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+          console.log('INSIDE IFRAMEBRIDGE :', newRelativePathQuery);
           history.pushState(null, '', newRelativePathQuery);
       },
 
