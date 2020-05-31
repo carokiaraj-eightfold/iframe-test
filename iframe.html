@@ -4,5 +4,14 @@
 <p>&nbsp;</p>
 <p>Input ProcessId:&nbsp;</p>
 <p><input type="text" name="process_id" id="process_id" />
-	<input type="submit" onclick="if ('parentIFrame' in window) window.parentIFrame.sendMessage(document.getElementById(process_id).value);"/>
+	<input type="submit" onclick="submitValues()"/>
 </p>
+<script>
+
+	function submitValues(){
+
+			var process_id = document.getElementById('process_id').value;
+			console.log('PROCESS ID', process_id)
+
+	}
+</script>
