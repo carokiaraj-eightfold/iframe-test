@@ -4,6 +4,7 @@
 <p>&nbsp;</p>
 <p>Input ProcessId:&nbsp;</p>
 <p><input type="text" name="process_id" id="process_id" />
+	<a href='#' onclick="if ('parentIFrame' in window) window.parentIFrame.sendMessage('Hello from the iFrame');return false;">Send Message</a>
 	<input type="submit" onclick="submitValues()"/>
 </p>
 <script>
