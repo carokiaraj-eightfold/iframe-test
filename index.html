@@ -1,6 +1,13 @@
 <<script type="text/javascript">
   // Host
 
+  window.addEventListener('my_event', function(e) {
+    console.log("e is");
+      var url = e.detail.url;
+      console.log("url",url);
+      window.open(url, '_blank');
+  }, false);
+  
   const CONST = {
       PARAM_CHANGE: "ParamChange",
       TRUSTED_ORIGIN: "https://app.eightfold.ai",
@@ -13,6 +20,7 @@
   else if (window.attachEvent) {
       window.attachEvent("onmessage", onPostMessage, false);
   }
+
 
   function onPostMessage(event) {
       if (event.origin !== CONST.TRUSTED_ORIGIN) return;
