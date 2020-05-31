@@ -8,10 +8,11 @@
 </p>
 <script>
 
-	function submitValues(){
+function submitValues(){
 
 			var process_id = document.getElementById('process_id').value;
 			console.log('PROCESS ID', process_id)
+			if ('parentIFrame' in window) window.parentIFrame.sendMessage(process_id)
 
 	}
 </script>
