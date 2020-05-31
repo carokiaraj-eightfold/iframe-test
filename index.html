@@ -79,7 +79,7 @@
 </div>
 </div>
 </header></div>
-<!-- /header --> <iframe id="efPCS" title="Careers at Bayer" src="https://app.eightfold.ai/careers?domain=bayer-sandbox.com" onload="alert('Bayer PCS Test');" width="100%" height="3600" frameborder="0" scrolling="no"></iframe> <!-- ______________________ FOOTER _______________________ --><footer id="footer-top" class="footer" style="margin-bottom: inherit;">
+<!-- /header --> <iframe id="efPCS" title="Careers at Bayer" src="iframe.html" onload="alert('Bayer PCS Test');" width="100%" height="3600" frameborder="0" scrolling="no"></iframe> <!-- ______________________ FOOTER _______________________ --><footer id="footer-top" class="footer" style="margin-bottom: inherit;">
 <div class="container">
 <div class="row">
 <div class="footer" style="margin-bottom: 135px;">
@@ -106,3 +106,38 @@
 </div>
 <div id="drupal-live-announce" class="visually-hidden" aria-live="polite" aria-busy="false">&nbsp;</div>
 <div class="socialsharing-overlay" style="display: none;">&nbsp;</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript" src="./javascript/iframeResizer.min.js"></script>
+		<script type="text/javascript">
+			iFrameResize({
+				log                     : true,                  // Enable console logging
+				enablePublicMethods     : true,                  // Enable methods within iframe hosted page
+				resizedCallback         : function(messageData){ // Callback fn when resize is received
+					$('p#callback').html(
+						'<b>Frame ID:</b> '    + messageData.iframe.id +
+						' <b>Height:</b> '     + messageData.height +
+						' <b>Width:</b> '      + messageData.width +
+						' <b>Event type:</b> ' + messageData.type
+					);
+				},
+				messageCallback         : function(messageData){ // Callback fn when message is received
+					$('p#callback').html(
+						'<b>Frame ID:</b> '    + messageData.iframe.id +
+						' <b>Message:</b> '    + messageData.message
+					);
+					alert(messageData.message);
+					var new_url = window.location.href + "/" + messageData.message;
+					window.location.href = new_url;
+					// window.location.href = window.location.href + "/" + messageData.message;
+					// window.location.href = window.location + window.location.search;
+					// alert(window.location.search);
+				},
+				closedCallback         : function(id){ // Callback fn when iFrame is closed
+					$('p#callback').html(
+						'<b>IFrame (</b>'    + id +
+						'<b>) removed from page.</b>'
+					);
+				}
+			});
+		</script>
