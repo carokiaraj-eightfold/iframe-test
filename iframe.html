@@ -19,8 +19,8 @@ function submitValues(){
 			var some_id = document.getElementById('some_id').value;
 			var another_id = document.getElementById('another_id').value;
 			var queryParams = "?process_id="+process_id+"&entity_id=" + entity_id +"&some_id="+some_id+"&another_id="+another_id;
-			if ('parentIFrame' in window) window.parentIFrame.sendMessage(queryParams);
-			//if ('parentIFrame' in window) window.parentIFrame.sendMessage(process_id, entity_id, some_id, another_id);
+			//if ('parentIFrame' in window) window.parentIFrame.sendMessage(queryParams);
+			if ('parentIFrame' in window) window.parentIFrame.sendMessage(process_id, entity_id, some_id, another_id);
 			//if ('parentIFrame' in window) window.parentIFrame.sendMessage(entity_id);
 			//if ('parentIFrame' in window) window.parentIFrame.sendMessage(some_id);
 			//if ('parentIFrame' in window) window.parentIFrame.sendMessage(another_id);
